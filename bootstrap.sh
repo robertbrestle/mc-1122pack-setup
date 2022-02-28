@@ -8,6 +8,9 @@ PACK=1.4.0
 mkdir /root/$PACK
 wget https://solder.endermedia.com/repository/downloads/the-1122-pack/the-1122-pack_$PACK.zip -O /root/$PACK/the-1122-pack_$PACK.zip
 unzip /root/$PACK/the-1122-pack_$PACK.zip -d /root/$PACK
+
+# update LaunchServer.sh with more memory
+sed -i 's/Xmx4G/Xmx7G/g' /root/$PACK/LaunchServer.sh
 chmod +x /root/$PACK/LaunchServer.sh
 
 # agree to EULA

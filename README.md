@@ -37,6 +37,22 @@ After deploying your new EC2 instance, follow the below instructions to configur
 3. Reboot the server to leverage the startup service  
     - the server creation/startup will take a few minutes  
 
+## Upgrading
+You can typically upgrade these servers in-place with the following configuration.  
+
+1. As root, run `bootstrap.sh` with the updated `$PACK variable`  
+2. Copy the following files from the old folder to the new folder:  
+    - `eula.txt`  
+	- `server.properties`  
+	- `LaunchServer.sh`  
+	- any other modified configuration files necessary  
+3. Copy your `world/` directory to the new folder  
+4. Update `minecraft.service` to point to the new folder  
+    - `sudo cp minecraft.service /etc/systemd/system/minecraft.service`  
+	- `sudo systemctl daemon-reload`  
+5. Reboot the server to leverage the startup service  
+    - the server creation/startup will take a few minutes  
+
 ---
 
 # References
